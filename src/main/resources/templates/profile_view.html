@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="fragments/layout :: layout">
+<head>
+    <meta charset="UTF-8">
+    <title>${page_headline}</title>
+</head>
+<body>
+<div class="page-content" th:fragment="main-content">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">View Profile</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>Company </label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.companyName}">companyName</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>User Name</label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.userName}">userName</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>Email address</label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.email}"></label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>First Name</label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.firstName}">${user.firstName}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>Last Name</label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.lastName}">${user.lastName}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>Mobile Number</label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.mobileNumber}">${user.mobileNumber}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>city</label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.city}">${user.city}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>User Created At</label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.creationDate}">${user.creationDate}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>User Role</label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.role.roleName}">${}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>Status</label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.Status}">${user.Status}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pr-1">
+                                    <label>Address</label>
+                                </div>
+                                <div class="col-md-8 pr-1">
+                                    <label th:text="${user.address}"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

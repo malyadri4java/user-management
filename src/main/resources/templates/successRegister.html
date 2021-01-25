@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Service</title>
+</head>
+<body>
+
+<center>>
+    <h1>Registration Successful</h1>
+    <div th:if="${confirmationMessage}" class="text-center alert alert-success" role="alert"
+         th:text="${confirmationMessage}"></div>
+</center>
+
+</body>
+</html>

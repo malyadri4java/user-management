@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/mdb.css">
+    <link rel="stylesheet" href="/css/fontawesome.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/line-icons.css">
+    <link rel="stylesheet" href="/css/style-responsive.css">
+    <title>User Management</title>
+</head>
+<body>
+<div id="container" class="wrapper">
+    <div th:replace="fragments/sidebar-menu :: sidebar-menu">navigation menu goes here</div>
+    <div class="main-panel">
+        <div th:replace="fragments/header-content :: header-content">header content goes here</div>
+        <div th:replace="fragments/main-content :: content">navigation menu goes here</div>
+        <div th:replace="fragments/footer-content :: footer-content">footer content goes here</div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/popper.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/mdb.js"></script>
+<script type="text/javascript" src="/js/script.js"></script>
+</html>

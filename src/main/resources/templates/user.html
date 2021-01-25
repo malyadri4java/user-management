@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" th:include="fragments/layout :: layout">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+</head>
+<body>
+ <div class="page-content" th:fragment="main-content">
+     <div class="content">
+         <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="card strpied-tabled-with-hover">
+                         <div class="card-header ">
+                             <h4 class="card-title">User Details</h4>
+                         </div>
+                         <div class="card-body table-full-width table-responsive">
+                             <a sec:authorize="hasRole('ADMIN')" th:href="@{/users/add}" class="btn btn-primary btn-rounded btn-sm my-0">Add New</a>
+                             <table class="table table-hover table-striped">
+                                 <caption>List of user(s)</caption>
+                                 <thead>
+                                     <td>User name</td>
+                                     <td>Full name</td>
+                                     <td>Email</td>
+                                     <td>Mobile Number</td>
+                                     <td>Company Name</td>
+                                     <td>Role</td>
+                                     <td>Status</td>
+                                     <td>Creation Date</td>
+                                     <td>Actions</td>
+                                 </thead>
+                                 <tbody>
+                                     <tr th:each="user:${users}">
+                                         <td th:text="${user.userName}">userName</td>
+                                         <td th:text="|${user.firstName} ${user.lastName}|">FullName</td>
+                                         <td th:text="${user.email}">email</td>
+                                         <td th:text="${user.mobileNumber}">mobileNumber</td>
+                                         <td th:text="${user.companyName}">companyName</td>
+                                         <td th:text="${user.role.roleName}">role</td>
+                                         <td th:text="${user.status}">status</td>
+                                         <td th:text="${user.creationDate}">creationDate</td>
+                                         <td>
+                                             <div class="btn-group" sec:authorize="hasRole('ADMIN')">
+                                                 <a th:href="@{/users/profile/{userId}(userId=${user.userId})}"
+                                                    class="btn btn-warning btn-rounded btn-sm my-1" type="text/html;charset=UTF-8"
+                                                    id="editButton">Edit</a>
+
+                                                 <a th:href="@{/users/delete/{userId}(userId=${user.userId})}"
+                                                    class="btn btn-danger btn-rounded btn-sm my-1" type="text/html;charset=UTF-8"
+                                                    id="deleteButton">Delete</a>
+                                             </div>
+                                             <div class="btn-group">
+                                                 <a th:href="@{/users/view/{userId}(userId=${user.userId})}"
+                                                    class="btn btn-info btn-rounded btn-sm my-1" type="text/html;charset=UTF-8"
+                                                    id="viewButton">View</a>
+                                             </div>
+                                         </td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                 <form th:action="@{/users/delete}" method="POST" id="userDeleteForm">
+                     <div class="modal-dialog" role="document">
+                         <div class="modal-content">
+                             <div class="modal-header">
+                                 <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                     <span aria-hidden="true">&times;</span>
+                                 </button>
+                             </div>
+                             <div class="modal-body">
+                                 <p>Are you sure you want to delete this record?</p>
+                             </div>
+                             <div class="modal-footer">
+                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                 <button id="delRef" type="submit" class="btn btn-primary">Yes, Delete</button>
+                                 <!--<a href="" id="delRef" class="btn btn-primary">Yes, Delete</a>-->
+                             </div>
+                         </div>
+                     </div>
+                 </form>
+             </div>
+         </div>
+     </div>
+ </div>
+</body>
+</html>
